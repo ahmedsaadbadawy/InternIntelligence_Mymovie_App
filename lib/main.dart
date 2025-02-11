@@ -11,10 +11,7 @@ void main() async {
   print('API_KEY: ${dotenv.env['API_KEY']}');
   ApiClient apiClient = ApiClient(Dio());
   MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(apiClient);
-  dataSource.getTrending();
-  dataSource.getPopular();
-  dataSource.getPlayingNow();
-  dataSource.getComingSoon();
+  dataSource.getRecommendations(845781);
   runApp(const MyApp());
 }
 
