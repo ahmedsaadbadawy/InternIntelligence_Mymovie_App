@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'di/get_it.dart' as getit;
-import 'presentaion/views/homa_screen.dart';
+import 'presentaion/views/home/homa_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
