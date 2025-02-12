@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'Core/errors/app_error.dart';
-import 'Core/usecases/no_params.dart';
+import 'domain/usecases/no_params.dart';
 import 'data/datasources/api_client.dart';
 import 'data/datasources/movie_remote_data_source.dart';
 import 'data/repositories/movie_repository_impl.dart';
