@@ -16,4 +16,5 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Folder Structure 🏗️
-![image](https://github.com/user-attachments/assets/66b9205e-110b-4609-9a54-1e9e0190e5af)
+![image](https://github.com/user-attachments/assets/82b9e985-e95d-4609-a81a-7f7f12150ff6)
+
