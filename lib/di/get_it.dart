@@ -5,6 +5,7 @@ import '../data/datasources/movie_remote_data_source.dart';
 import '../data/repositories/movie_repository_impl.dart';
 import '../domain/repositories/movie_repository.dart';
 import '../domain/usecases/get_coming_soon.dart';
+import '../domain/usecases/get_movie_detail.dart';
 import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_trending.dart';
@@ -43,6 +44,9 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetComingSoon>(
       () => GetComingSoon(getItInstance()));
+
+  getItInstance.registerLazySingleton<GetMovieDetail>(
+      () => GetMovieDetail(getItInstance()));
 
   // Cubits
   // registerFactory: recreate the instance every time it is called
