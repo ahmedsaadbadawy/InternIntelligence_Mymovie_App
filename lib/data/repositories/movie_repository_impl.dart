@@ -60,4 +60,14 @@ class MovieRepositoryImpl extends MovieRepository {
       return const Left( AppError('Something went wrong'));
     }
   }
+  
+  @override
+  Future<Either<AppError, List<MovieEntity>>> getRecommendations(int movieId) async{
+    try {
+      final movies = await remoteDataSource.getRecommendations(movieId);
+      return Right(movies);
+    } on Exception {
+      return const Left( AppError('Something went wrong'));
+    }
+  }
 }
