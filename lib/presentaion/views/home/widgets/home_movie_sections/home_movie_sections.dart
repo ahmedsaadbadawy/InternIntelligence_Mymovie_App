@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../di/get_it.dart';
 import '../../../../manager/coming_soon/movie_coming_soon_cubit.dart';
@@ -16,22 +17,29 @@ class HomeMovieSections extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-      BlocProvider(
-        create: (context) => getItInstance<MoviePlayingNowCubit>()..loadPlayingNow(),
-      ),
-      BlocProvider(
-        create: (context) => getItInstance<MoviePopularCubit>()..loadPopular(),
-      ),
-      BlocProvider(
-        create: (context) => getItInstance<MovieComingSoonCubit>()..loadComingSoon(),
-      ),
+        BlocProvider(
+          create: (context) =>
+              getItInstance<MoviePlayingNowCubit>()..loadPlayingNow(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getItInstance<MoviePopularCubit>()..loadPopular(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getItInstance<MovieComingSoonCubit>()..loadComingSoon(),
+        ),
       ],
-      child: const Column(
-      children: [
-        PlayingNowSection(),
-        PopularMoviesSection(),
-        ComingSoonSection(),
-      ],
+      child: Column(
+        children: [
+          SizedBox(height: 8.h),
+          const PlayingNowSection(),
+          SizedBox(height: 8.h),
+          const PopularMoviesSection(),
+          SizedBox(height: 8.h),
+          const ComingSoonSection(),
+          SizedBox(height: 8.h),
+        ],
       ),
     );
   }

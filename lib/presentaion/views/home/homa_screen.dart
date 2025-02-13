@@ -14,30 +14,32 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => getItInstance<MovieCarouselCubit>()..loadCarousel(),
       child: Scaffold(
-      body: CustomScrollView(
-        slivers: [
-        // Carousel Slider
-        SliverToBoxAdapter(
-          child: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
-          builder: (context, state) {
-            if (state is MovieCarouselLoading) {
-            return const Center(child: CircularProgressIndicator());
-            } else if (state is MovieCarouselLoaded) {
-            return CustomCarouselSlider(movies: state.movies);
-            } else if (state is MovieCarouselError) {
-            return Center(child: Text(state.errorMessage));
-            }
-            return const SizedBox.shrink();
-          },
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              // Carousel Slider
+              SliverToBoxAdapter(
+                child: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
+                  builder: (context, state) {
+                    if (state is MovieCarouselLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (state is MovieCarouselLoaded) {
+                      return CustomCarouselSlider(movies: state.movies);
+                    } else if (state is MovieCarouselError) {
+                      return Center(child: Text(state.errorMessage));
+                    }
+                    return const SizedBox.shrink();
+                  },
+                ),
+              ),
+
+              // Movie Sections
+              const SliverToBoxAdapter(
+                child: HomeMovieSections(),
+              ),
+            ],
           ),
         ),
-
-        // Movie Sections
-        const SliverToBoxAdapter(
-          child: HomeMovieSections(),
-        ),
-        ],
-      ),
       ),
     );
   }
