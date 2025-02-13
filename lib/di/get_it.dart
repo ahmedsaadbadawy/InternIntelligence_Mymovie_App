@@ -8,12 +8,15 @@ import '../domain/usecases/get_coming_soon.dart';
 import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_trending.dart';
+import '../presentaion/manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../presentaion/manager/movie_carousel/movie_carousel_cubit.dart';
+import '../presentaion/manager/movie_popular/movie_popular_cubit.dart';
+import '../presentaion/manager/playing_now/movie_playing_now_cubit.dart';
 
 final getItInstance = GetIt.I;
 Future init() async {
-  
   // Dio
+  // lazy singleton: create the instance when it is first called only and reuse it for subsequent calls.
   getItInstance.registerLazySingleton<Dio>(() => Dio());
 
   // ApiClient / ApiServices
@@ -42,7 +45,17 @@ Future init() async {
       () => GetComingSoon(getItInstance()));
 
   // Cubits
+  // registerFactory: recreate the instance every time it is called
   getItInstance.registerFactory(
     () => MovieCarouselCubit(getTrending: getItInstance()),
-  );  
+  );
+  getItInstance.registerFactory(
+    () => MoviePlayingNowCubit(getPlayingNow: getItInstance()),
+  );
+  getItInstance.registerFactory(
+    () => MoviePopularCubit(getPopular: getItInstance()),
+  );
+  getItInstance.registerFactory(
+    () => MovieComingSoonCubit(getComingSoon: getItInstance()),
+  );
 }
