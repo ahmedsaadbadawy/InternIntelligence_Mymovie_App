@@ -21,10 +21,8 @@ class CarouselSliderCard extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
-          height: MediaQuery.of(context).size.height * 0.5,
           width: MediaQuery.of(context).size.width,
-          imageUrl: //'${ApiConstants.baseImageUrl}
-              '$posterPath',
+          imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
           fit: BoxFit.fill,
         ),
       ),

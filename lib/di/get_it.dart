@@ -8,18 +8,27 @@ import '../domain/usecases/get_coming_soon.dart';
 import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_trending.dart';
+import '../presentaion/manager/movie_carousel/movie_carousel_cubit.dart';
 
 final getItInstance = GetIt.I;
 Future init() async {
   
+  // Dio
   getItInstance.registerLazySingleton<Dio>(() => Dio());
 
+  // ApiClient / ApiServices
   getItInstance
       .registerLazySingleton<ApiClient>(() => ApiClient(getItInstance()));
 
+  // Data sources
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(getItInstance()));
 
+  // Repositories
+  getItInstance.registerLazySingleton<MovieRepository>(
+      () => MovieRepositoryImpl(getItInstance()));
+
+  // Use cases
   getItInstance
       .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
 
@@ -32,6 +41,8 @@ Future init() async {
   getItInstance.registerLazySingleton<GetComingSoon>(
       () => GetComingSoon(getItInstance()));
 
-  getItInstance.registerLazySingleton<MovieRepository>(
-      () => MovieRepositoryImpl(getItInstance()));
+  // Cubits
+  getItInstance.registerFactory(
+    () => MovieCarouselCubit(getTrending: getItInstance()),
+  );  
 }
