@@ -5,10 +5,10 @@ import '/domain/repositories/movie_repository.dart';
 import '/domain/usecases/usecase.dart';
 import 'movie_params.dart';
 
-class GetMovieDetail extends UseCase<List<MovieEntity>, MovieParams> {
+class GetRecommendations extends UseCase<List<MovieEntity>, MovieParams> {
   final MovieRepository repository;
 
-  GetMovieDetail(this.repository);
+  GetRecommendations(this.repository);
 
   @override
   Future<Either<AppError, List<MovieEntity>>> call(
