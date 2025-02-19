@@ -18,9 +18,12 @@ class ApiClient {
     );
   }
 
-  Future<dynamic> get(String path) async {
+  Future<dynamic> get(String path, {Map<String, dynamic>? params}) async {
     try {
-      final response = await _dio.get(path);
+      final response = await _dio.get(
+        path,
+        queryParameters: params,
+      );
       if (response.statusCode == 200) {
         return response.data;
       } else {

@@ -11,6 +11,7 @@ import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_recommendations.dart';
 import '../domain/usecases/get_trending.dart';
+import '../domain/usecases/search_movies.dart';
 import '../presentaion/manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../presentaion/manager/movie_carousel/movie_carousel_cubit.dart';
 import '../presentaion/manager/movie_popular/movie_popular_cubit.dart';
@@ -54,6 +55,9 @@ Future init() async {
   getItInstance.registerLazySingleton<GetRecommendations>(
       () => GetRecommendations(getItInstance()));
 
+  getItInstance.registerLazySingleton<SearchMovies>(
+      () => SearchMovies(getItInstance()));
+
   // Cubits
   // registerFactory: recreate the instance every time it is called
   getItInstance.registerFactory(
@@ -74,4 +78,9 @@ Future init() async {
   getItInstance.registerFactory(
     () => GetRecommendationsCubit(getRecommendations: getItInstance()),
   );
+  // getItInstance.registerFactory(
+  //   () => SearchMovieCubit(
+  //     searchMovies: getItInstance(),
+  //   ),
+  // );
 }
