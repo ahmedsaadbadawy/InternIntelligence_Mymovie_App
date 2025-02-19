@@ -3,10 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/presentaion/views/movie_detail/movie_detail_screen.dart';
-import 'package:movie_app/presentaion/views/movie_detail/widgets/movie_detail_arguments.dart';
+import 'Core/utils/app_router.dart';
 import 'di/get_it.dart' as getit;
-import 'presentaion/views/home/homa_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,10 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(414, 896),
-      builder: (context, child) => MaterialApp(
+      builder: (context, child) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: const MovieDetailScreen(movieDetailArguments: MovieDetailArguments(845781),),
+        routerConfig: AppRouter.router,
       ),
     );
   }

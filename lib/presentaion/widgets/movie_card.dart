@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../Core/utils/api_constants.dart';
+import '../../Core/utils/app_router.dart';
 
 class MovieCard extends StatelessWidget {
   final int movieId;
@@ -17,6 +19,10 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        context.go(
+          AppRouter.kMovieDetailScreen,
+          extra: movieId,
+        );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),

@@ -5,14 +5,13 @@ import '/di/get_it.dart';
 import 'manager/MovieDetail/movie_detail_cubit.dart';
 import 'manager/MovieDetail/movie_detail_state.dart';
 import 'widgets/big_poster.dart';
-import 'widgets/movie_detail_arguments.dart';
 
 class MovieDetailScreen extends StatefulWidget {
-  final MovieDetailArguments movieDetailArguments;
+  final int movieId;
 
   const MovieDetailScreen({
     super.key,
-    required this.movieDetailArguments,
+    required this.movieId,
   });
 
   @override
@@ -27,7 +26,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
     super.initState();
     _movieDetailCubit = getItInstance<MovieDetailCubit>();
     _movieDetailCubit.loadMovieDetail(
-      widget.movieDetailArguments.movieId,
+      widget.movieId,
     );
   }
 
