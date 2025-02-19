@@ -22,7 +22,7 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
     );
 
     eitherResponse.fold(
-      (failure) => emit(MovieDetailError()),
+      (failure) => emit(MovieDetailError( errorMessage: failure.message)),
       (movieDetail) => emit(MovieDetailLoaded(movieDetail)),
     );
   }

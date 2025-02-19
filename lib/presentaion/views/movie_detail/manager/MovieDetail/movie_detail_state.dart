@@ -12,7 +12,14 @@ class MovieDetailInitial extends MovieDetailState {}
 
 class MovieDetailLoading extends MovieDetailState {}
 
-class MovieDetailError extends MovieDetailState {}
+class MovieDetailError extends MovieDetailState {
+   final String errorMessage;
+
+  const MovieDetailError({required this.errorMessage});
+
+  @override
+  List<Object?> get props => [errorMessage];
+}
 
 class MovieDetailLoaded extends MovieDetailState {
   final MovieDetailEntity movieDetailEntity;
