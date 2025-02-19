@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/presentaion/views/movie_detail/movie_detail_screen.dart';
+import 'package:movie_app/presentaion/views/movie_detail/widgets/movie_detail_arguments.dart';
 import 'di/get_it.dart' as getit;
 import 'presentaion/views/home/homa_screen.dart';
 
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: const HomeScreen(),
+        home: const MovieDetailScreen(movieDetailArguments: MovieDetailArguments(845781),),
       ),
     );
   }

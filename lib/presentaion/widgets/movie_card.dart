@@ -15,14 +15,18 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      width: 120,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: CachedNetworkImage(
-          imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+        width: 120,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: CachedNetworkImage(
+            imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

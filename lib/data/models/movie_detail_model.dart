@@ -36,7 +36,7 @@ class MovieDetailModel extends MovieDetailEntity {
   final num voteAverage;
   final int? voteCount;
 
-  MovieDetailModel({
+  const MovieDetailModel({
     this.adult,
     required this.backdropPath,
     this.belongsToCollection,
