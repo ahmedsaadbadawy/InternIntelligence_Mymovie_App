@@ -55,28 +55,40 @@ Future init() async {
   getItInstance.registerLazySingleton<GetRecommendations>(
       () => GetRecommendations(getItInstance()));
 
-  getItInstance.registerLazySingleton<SearchMovies>(
-      () => SearchMovies(getItInstance()));
+  getItInstance
+      .registerLazySingleton<SearchMovies>(() => SearchMovies(getItInstance()));
 
   // Cubits
   // registerFactory: recreate the instance every time it is called
   getItInstance.registerFactory(
-    () => MovieCarouselCubit(getTrending: getItInstance()),
+    () => MovieCarouselCubit(
+      getTrending: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MoviePlayingNowCubit(getPlayingNow: getItInstance()),
+    () => MoviePlayingNowCubit(
+      getPlayingNow: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MoviePopularCubit(getPopular: getItInstance()),
+    () => MoviePopularCubit(
+      getPopular: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MovieComingSoonCubit(getComingSoon: getItInstance()),
+    () => MovieComingSoonCubit(
+      getComingSoon: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MovieDetailCubit(getMovieDetail: getItInstance()),
+    () => MovieDetailCubit(
+      getMovieDetail: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => GetRecommendationsCubit(getRecommendations: getItInstance()),
+    () => GetRecommendationsCubit(
+      getRecommendations: getItInstance(),
+    ),
   );
   // getItInstance.registerFactory(
   //   () => SearchMovieCubit(

@@ -1,7 +1,7 @@
 // presentation/widgets/horizontal_movie_list.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../widgets/movie_card.dart';
+import 'movie_card.dart';
 import '/domain/entities/movie_entity.dart';
 
 class HorizontalMovieList extends StatelessWidget {

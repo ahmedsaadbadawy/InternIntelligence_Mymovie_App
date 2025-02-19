@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../../../../manager/coming_soon/movie_coming_soon_state.dart';
-import 'horizontal_movie_list.dart';
+import '../../../../widgets/horizontal_movie_list.dart';
 
 class ComingSoonSection extends StatelessWidget {
   const ComingSoonSection({super.key});
