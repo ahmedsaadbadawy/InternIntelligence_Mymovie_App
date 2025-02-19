@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/presentaion/views/movie_detail/manager/MovieDetail/movie_detail_cubit.dart';
+import 'package:movie_app/presentaion/views/search/manager/SearchMovie/search_movie_cubit.dart';
 import '../data/datasources/api_client.dart';
 import '../data/datasources/movie_remote_data_source.dart';
 import '../data/repositories/movie_repository_impl.dart';
@@ -90,9 +91,9 @@ Future init() async {
       getRecommendations: getItInstance(),
     ),
   );
-  // getItInstance.registerFactory(
-  //   () => SearchMovieCubit(
-  //     searchMovies: getItInstance(),
-  //   ),
-  // );
+  getItInstance.registerFactory(
+    () => SearchMoviesCubit(
+      searchMovies: getItInstance(),
+    ),
+  );
 }
