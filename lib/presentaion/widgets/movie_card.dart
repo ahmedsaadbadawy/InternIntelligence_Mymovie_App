@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Core/utils/api_constants.dart';
@@ -19,16 +20,16 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go(
+        context.push(
           AppRouter.kMovieDetailScreen,
           extra: movieId,
         );
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        width: 120,
+        margin: EdgeInsets.symmetric(horizontal: 6.0.w),
+        width: 120.w,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           child: CachedNetworkImage(
             imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
             fit: BoxFit.cover,

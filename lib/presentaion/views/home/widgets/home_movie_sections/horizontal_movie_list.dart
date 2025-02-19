@@ -1,5 +1,6 @@
 // presentation/widgets/horizontal_movie_list.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../widgets/movie_card.dart';
 import '/domain/entities/movie_entity.dart';
 
@@ -18,19 +19,23 @@ class HorizontalMovieList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(
+          height: 16.h,
+        ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0.r),
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 20,
+            style: TextStyle(
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
+              color: Colors.purple,
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         SizedBox(
-          height: 200, // Adjust height as needed
+          height: 200.w,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: movies.length,
