@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
   const MovieDetailAppBar({super.key});
@@ -11,7 +12,7 @@ class MovieDetailAppBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.of(context).pop();
+            GoRouter.of(context).pop();
           },
           child: Icon(
             Icons.arrow_back_ios,

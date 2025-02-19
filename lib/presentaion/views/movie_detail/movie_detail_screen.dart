@@ -5,6 +5,7 @@ import '/di/get_it.dart';
 import 'manager/MovieDetail/movie_detail_cubit.dart';
 import 'manager/MovieDetail/movie_detail_state.dart';
 import 'widgets/big_poster.dart';
+import 'widgets/movie_recommendations_section.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final int movieId;
@@ -62,6 +63,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
+                    SizedBox(height: 8.h),
+                    MovieRecommendationsSection(movieId: widget.movieId),
                   ],
                 );
               } else if (state is MovieDetailError) {

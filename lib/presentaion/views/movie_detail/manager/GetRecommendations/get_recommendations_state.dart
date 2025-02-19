@@ -13,12 +13,12 @@ class GetRecommendationsInitial extends GetRecommendationsState {}
 class GetRecommendationsLoading extends GetRecommendationsState {}
 
 class GetRecommendationsLoaded extends GetRecommendationsState {
-  final List<MovieEntity> recommendations;
+  final List<MovieEntity> movies;
 
-  const GetRecommendationsLoaded(this.recommendations);
+  const GetRecommendationsLoaded(this.movies);
 
   @override
-  List<Object?> get props => [recommendations];
+  List<Object?> get props => [movies];
 }
 
 class GetRecommendationsError extends GetRecommendationsState {
