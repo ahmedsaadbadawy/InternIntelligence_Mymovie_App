@@ -53,7 +53,6 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
   Future<MovieDetailModel> getMovieDetail(int movieId) async{
     final response = await _client.get('movie/$movieId');
     final movie = MovieDetailModel.fromJson(response);
-    print(movie);
     return movie;
   }
 
@@ -61,7 +60,6 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
   Future<List<MovieModel>> getRecommendations(int movieId) async{
     final response = await _client.get('movie/$movieId/recommendations');
     final movies = MoviesResultModel.fromJson(response).movies ?? [];
-    print(movies);
     return movies;
   }
 }

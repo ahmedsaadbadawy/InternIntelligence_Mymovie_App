@@ -13,8 +13,7 @@ class GetRecommendationsCubit extends Cubit<GetRecommendationsState> {
   Future<void> loadRecommendations(int movieId) async {
     emit(GetRecommendationsLoading());
 
-    final eitherResponse =
-        await getRecommendations(
+    final eitherResponse = await getRecommendations(
       MovieParams(movieId),
     );
 

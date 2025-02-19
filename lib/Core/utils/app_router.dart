@@ -19,7 +19,8 @@ abstract class AppRouter {
       GoRoute(
         path: kMovieDetailScreen,
         builder: (context, state) => BlocProvider(
-          create: (context) => getItInstance<MovieDetailCubit>(),
+          create: (context) => getItInstance<MovieDetailCubit>()
+            ..loadMovieDetail(state.extra as int),
           child: MovieDetailScreen(
             movieId: state.extra as int,
           ),

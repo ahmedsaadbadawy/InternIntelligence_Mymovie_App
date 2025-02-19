@@ -16,7 +16,7 @@ class MovieModel extends MovieEntity {
     String? backdropPath,
     String? title,
     this.originalTitle,
-    String? overview,
+    super.overview,
     this.mediaType,
     this.adult,
     this.originalLanguage,
@@ -33,7 +33,6 @@ class MovieModel extends MovieEntity {
           title: title ?? '',
           voteAverage: voteAverage ?? 0,
           releaseDate: releaseDate ?? '',
-          overview: overview,
         );
 
   // Factory constructor to create a MovieModel from JSON
