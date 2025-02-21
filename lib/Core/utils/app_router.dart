@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/presentaion/views/home/homa_screen.dart';
 import 'package:movie_app/presentaion/views/movie_detail/manager/MovieDetail/movie_detail_cubit.dart';
 import 'package:movie_app/presentaion/views/movie_detail/movie_detail_screen.dart';
-import 'package:movie_app/presentaion/views/search/manager/SearchMovie/search_movie_cubit.dart';
 import 'package:movie_app/presentaion/views/search/search_screen.dart';
 
 import '../../di/get_it.dart';
@@ -16,7 +15,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => const SearchScreen(),
       ),
       GoRoute(
         path: kMovieDetailScreen,
@@ -30,13 +29,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSearchScreen,
-        builder: (context, state) => BlocProvider(
-          create: (context) => getItInstance<SearchMoviesCubit>()
-            ..searchForMovies(state.extra as String),
-          child: const SearchScreen(
-            //searchText: state.extra as String,
-          ),
-        ),
+        builder: (context, state) =>  const SearchScreen(),
       ),
     ],
   );
