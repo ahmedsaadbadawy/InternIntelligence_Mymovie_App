@@ -4,7 +4,7 @@ import 'package:movie_app/presentaion/views/movie_detail/manager/GetRecommendati
 import 'package:movie_app/presentaion/views/movie_detail/manager/GetRecommendations/get_recommendations_state.dart';
 
 import '../../../../di/get_it.dart';
-import '../../home/widgets/home_movie_sections/horizontal_movie_list.dart';
+import '../../../widgets/horizontal_movie_list.dart';
 
 class MovieRecommendationsSection extends StatelessWidget {
   const MovieRecommendationsSection({super.key, required this.movieId});

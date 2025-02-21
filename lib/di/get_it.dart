@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/presentaion/views/movie_detail/manager/MovieDetail/movie_detail_cubit.dart';
+import 'package:movie_app/presentaion/views/search/manager/SearchMovie/search_movie_cubit.dart';
 import '../data/datasources/api_client.dart';
 import '../data/datasources/movie_remote_data_source.dart';
 import '../data/repositories/movie_repository_impl.dart';
@@ -11,6 +12,7 @@ import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_recommendations.dart';
 import '../domain/usecases/get_trending.dart';
+import '../domain/usecases/search_movies.dart';
 import '../presentaion/manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../presentaion/manager/movie_carousel/movie_carousel_cubit.dart';
 import '../presentaion/manager/movie_popular/movie_popular_cubit.dart';
@@ -54,24 +56,44 @@ Future init() async {
   getItInstance.registerLazySingleton<GetRecommendations>(
       () => GetRecommendations(getItInstance()));
 
+  getItInstance
+      .registerLazySingleton<SearchMovies>(() => SearchMovies(getItInstance()));
+
   // Cubits
   // registerFactory: recreate the instance every time it is called
   getItInstance.registerFactory(
-    () => MovieCarouselCubit(getTrending: getItInstance()),
+    () => MovieCarouselCubit(
+      getTrending: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MoviePlayingNowCubit(getPlayingNow: getItInstance()),
+    () => MoviePlayingNowCubit(
+      getPlayingNow: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MoviePopularCubit(getPopular: getItInstance()),
+    () => MoviePopularCubit(
+      getPopular: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MovieComingSoonCubit(getComingSoon: getItInstance()),
+    () => MovieComingSoonCubit(
+      getComingSoon: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => MovieDetailCubit(getMovieDetail: getItInstance()),
+    () => MovieDetailCubit(
+      getMovieDetail: getItInstance(),
+    ),
   );
   getItInstance.registerFactory(
-    () => GetRecommendationsCubit(getRecommendations: getItInstance()),
+    () => GetRecommendationsCubit(
+      getRecommendations: getItInstance(),
+    ),
+  );
+  getItInstance.registerFactory(
+    () => SearchMoviesCubit(
+      searchMovies: getItInstance(),
+    ),
   );
 }

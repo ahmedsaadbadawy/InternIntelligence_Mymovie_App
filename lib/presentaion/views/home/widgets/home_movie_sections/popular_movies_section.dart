@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../manager/movie_popular/movie_popular_cubit.dart';
 import '../../../../manager/movie_popular/movie_popular_state.dart';
-import 'horizontal_movie_list.dart';
+import '../../../../widgets/horizontal_movie_list.dart';
 
 class PopularMoviesSection extends StatelessWidget {
   const PopularMoviesSection({super.key});

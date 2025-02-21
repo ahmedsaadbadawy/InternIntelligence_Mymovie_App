@@ -11,4 +11,6 @@ abstract class MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getComingSoon();
   Future<Either<AppError, MovieDetailEntity>> getMovieDetail(int movieId);
   Future<Either<AppError, List<MovieEntity>>> getRecommendations(int movieId);
+  Future<Either<AppError, List<MovieEntity>>> getSearchedMovies(
+      String searchTerm);
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../manager/playing_now/movie_playing_now_cubit.dart';
 import '../../../../manager/playing_now/movie_playing_now_state.dart';
-import 'horizontal_movie_list.dart';
+import '../../../../widgets/horizontal_movie_list.dart';
 
 class PlayingNowSection extends StatelessWidget {
   const PlayingNowSection({super.key});
