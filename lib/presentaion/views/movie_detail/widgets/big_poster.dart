@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/Core/utils/themes/theme_color.dart';
 
 import '../../../../Core/utils/api_constants.dart';
 import '../../../../domain/entities/movie_detail_entity.dart';
@@ -57,7 +58,7 @@ class BigPoster extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall
-                  ?.copyWith(color: Colors.purple),
+                  ?.copyWith(color: AppColor.royalBlue),
             ),
           ),
         ),

@@ -29,7 +29,7 @@ class HorizontalMovieList extends StatelessWidget {
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
-              color: Colors.purple,
+              //color: AppColor.royalBlue,
             ),
           ),
         ),

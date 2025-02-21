@@ -16,7 +16,10 @@ class CustomSearchDelegate extends SearchDelegate {
   ThemeData appBarTheme(BuildContext context) {
     return Theme.of(context).copyWith(
       inputDecorationTheme: InputDecorationTheme(
-        hintStyle: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.grey),
+        hintStyle: Theme.of(context)
+            .textTheme
+            .titleSmall
+            ?.copyWith(color: Colors.grey),
       ),
     );
   }
@@ -27,7 +30,7 @@ class CustomSearchDelegate extends SearchDelegate {
       IconButton(
         icon: Icon(
           Icons.clear,
-          color: query.isEmpty ? Colors.grey : AppColor.royalBlue,//violet
+          color: query.isEmpty ? Colors.grey : AppColor.royalBlue, //violet
         ),
         onPressed: query.isEmpty ? null : () => query = '',
       ),
