@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../Core/errors/app_error.dart';
+import '../../domain/entities/video_entity.dart';
 import '../datasources/movie_remote_data_source.dart';
+import '../models/cast_crew_result_data_model.dart';
 import '../models/movie_detail_model.dart';
 import '/data/models/movie_model.dart';
 import '/domain/entities/movie_entity.dart';
@@ -79,6 +81,26 @@ class MovieRepositoryImpl extends MovieRepository {
       return Right(movies);
     } on Exception {
       return const Left(AppError('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<CastModel>>> getCastCrew(int id) async {
+    try {
+      final castCrew = await remoteDataSource.getCastCrew(id);
+      return Right(castCrew);
+    } on Exception {
+      return const Left(AppError('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<VideoEntity>>> getVideos(int id) async {
+    try {
+      final videos = await remoteDataSource.getVideos(id);
+      return Right(videos);
+    } on Exception {
+      return const Left(const AppError('Something went wrong'));
     }
   }
 }
