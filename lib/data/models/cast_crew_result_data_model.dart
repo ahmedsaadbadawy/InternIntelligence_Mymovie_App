@@ -11,7 +11,7 @@ class CastCrewResultModel {
 
   factory CastCrewResultModel.fromJson(Map<String, dynamic> json) {
     return CastCrewResultModel(
-      id: json['id'],
+      id: json['id'] ?? 0,
       cast: (json['cast'] as List).map((e) => CastModel.fromJson(e)).toList(),
       crew: (json['crew'] as List).map((e) => Crew.fromJson(e)).toList(),
     );
@@ -26,6 +26,7 @@ class CastCrewResultModel {
   }
 }
 
+
 class CastModel extends CastEntity {
   final int castId;
   @override
@@ -37,7 +38,7 @@ class CastModel extends CastEntity {
   @override
   final String name;
   final int order;
-  final String profilePath;
+  final String? profilePath;
 
   const CastModel({
     required this.castId,
@@ -51,19 +52,19 @@ class CastModel extends CastEntity {
   }) : super(
           creditId: creditId,
           name: name,
-          posterPath: profilePath,
+          posterPath: profilePath??'',
           character: character,
         );
 
   factory CastModel.fromJson(Map<String, dynamic> json) {
     return CastModel(
-      castId: json['cast_id'],
-      character: json['character'],
-      creditId: json['credit_id'],
-      gender: json['gender'],
-      id: json['id'],
-      name: json['name'],
-      order: json['order'],
+      castId: json['cast_id'] ?? 0,
+      character: json['character'] ?? '',
+      creditId: json['credit_id'] ?? '',
+      gender: json['gender'] ?? 0,
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      order: json['order'] ?? 0,
       profilePath: json['profile_path'],
     );
   }
@@ -82,6 +83,7 @@ class CastModel extends CastEntity {
   }
 }
 
+
 class Crew {
   String creditId;
   String department;
@@ -89,7 +91,7 @@ class Crew {
   int id;
   String job;
   String name;
-  String profilePath;
+  String? profilePath;
 
   Crew({
     required this.creditId,
@@ -98,17 +100,17 @@ class Crew {
     required this.id,
     required this.job,
     required this.name,
-    required this.profilePath,
+    this.profilePath,
   });
 
   factory Crew.fromJson(Map<String, dynamic> json) {
     return Crew(
-      creditId: json['credit_id'],
-      department: json['department'],
-      gender: json['gender'],
-      id: json['id'],
-      job: json['job'],
-      name: json['name'],
+      creditId: json['credit_id'] ?? '',
+      department: json['department'] ?? '',
+      gender: json['gender'] ?? 0,
+      id: json['id'] ?? 0,
+      job: json['job'] ?? '',
+      name: json['name'] ?? '',
       profilePath: json['profile_path'],
     );
   }
@@ -125,3 +127,4 @@ class Crew {
     };
   }
 }
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/presentaion/views/movie_detail/widgets/cast_builder_widget.dart';
 
 import '../../../../domain/entities/movie_detail_entity.dart';
 import 'big_poster.dart';
@@ -38,6 +39,19 @@ class MovieDetailScreenBody extends StatelessWidget {
           SizedBox(height: 4.h),
           MovieRecommendationsSection(movieId: movieId),
           SizedBox(height: 12.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Text(
+              'cast',
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                //color: AppColor.royalBlue,
+              ),
+            ),
+          ),
+          CastBuilderWidget(movieId: movieId),
+          //WatchVideosWidget(movieId: movieId),
         ],
       ),
     );
