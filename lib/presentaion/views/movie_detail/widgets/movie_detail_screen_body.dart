@@ -5,6 +5,7 @@ import 'package:movie_app/presentaion/views/movie_detail/widgets/cast_builder_wi
 import '../../../../domain/entities/movie_detail_entity.dart';
 import 'big_poster.dart';
 import 'movie_recommendations_section.dart';
+import 'videos_widget.dart';
 
 class MovieDetailScreenBody extends StatelessWidget {
   const MovieDetailScreenBody({
@@ -51,7 +52,8 @@ class MovieDetailScreenBody extends StatelessWidget {
             ),
           ),
           CastBuilderWidget(movieId: movieId),
-          //WatchVideosWidget(movieId: movieId),
+          WatchVideosBuilderWidget(movieId: movieId),
+          SizedBox(height: 4.h),
         ],
       ),
     );
