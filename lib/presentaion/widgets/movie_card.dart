@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../Core/utils/api_constants.dart';
 import '../../Core/utils/app_router.dart';
+import '../../Core/utils/themes/theme_color.dart';
 
 class MovieCard extends StatelessWidget {
   final int movieId;
@@ -33,6 +34,12 @@ class MovieCard extends StatelessWidget {
           child: CachedNetworkImage(
             imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
             fit: BoxFit.cover,
+            placeholder: (context, url) => const Center(
+              child: CircularProgressIndicator(
+                color: AppColor.royalBlue,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
       ),

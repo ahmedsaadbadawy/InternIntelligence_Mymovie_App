@@ -22,7 +22,6 @@ class MovieDetailScreen extends StatelessWidget {
               final movieDetail = state.movieDetailEntity;
               return MovieDetailScreenBody(
                 movieDetail: movieDetail,
-                movieId: movieId,
               );
             } else if (state is MovieDetailError) {
               return Center(
