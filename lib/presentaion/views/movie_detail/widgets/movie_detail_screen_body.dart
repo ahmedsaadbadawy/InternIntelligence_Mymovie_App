@@ -11,11 +11,9 @@ class MovieDetailScreenBody extends StatelessWidget {
   const MovieDetailScreenBody({
     super.key,
     required this.movieDetail,
-    required this.movieId,
   });
 
   final MovieDetailEntity movieDetail;
-  final int movieId;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,7 @@ class MovieDetailScreenBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 4.h),
-          MovieRecommendationsSection(movieId: movieId),
+          MovieRecommendationsSection(movieId: movieDetail.id),
           SizedBox(height: 12.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -51,8 +49,8 @@ class MovieDetailScreenBody extends StatelessWidget {
               ),
             ),
           ),
-          CastBuilderWidget(movieId: movieId),
-          WatchVideosBuilderWidget(movieId: movieId),
+          CastBuilderWidget(movieId: movieDetail.id),
+          WatchVideosBuilderWidget(movieId: movieDetail.id),
           SizedBox(height: 4.h),
         ],
       ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/Core/utils/themes/theme_color.dart';
 
+import '../../../../Core/utils/app_router.dart';
 import '../../../../di/get_it.dart';
 import '../../../widgets/custom_text_button.dart';
 import '../../movie_detail/manager/videos/videos_cubit.dart';
 import '../../movie_detail/manager/videos/videos_state.dart';
-import '../watch_video_screen.dart';
 
 class WatchVideosBuilderWidget extends StatelessWidget {
   final int movieId;
@@ -32,12 +33,9 @@ class WatchVideosBuilderWidget extends StatelessWidget {
             return CustomTextButton(
               text: 'watchTrailers',
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => WatchVideoScreen(
-                      videos: state.videos,
-                    ),
-                  ),
+                context.push(
+                  AppRouter.kwatchVideoScreen,
+                  extra: state.videos,
                 );
               },
             );

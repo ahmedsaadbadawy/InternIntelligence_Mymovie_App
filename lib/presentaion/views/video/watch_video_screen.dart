@@ -40,82 +40,84 @@ class WatchVideoScreenState extends State<WatchVideoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'watchTrailers',
-        ),
-      ),
-      body: YoutubePlayerBuilder(
-        player: YoutubePlayer(
-          controller: _controller,
-          aspectRatio: 16 / 9,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: AppColor.royalBlue,
-          progressColors: const ProgressBarColors(
-            playedColor: AppColor.royalBlue,
-            handleColor: Colors.blueAccent,
+    return sa(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'watchTrailers',
           ),
         ),
-        builder: (context, player) {
-          return Column(
-            children: [
-              player,
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      for (int i = 0; i < widget.videos.length; i++)
-                        Container(
-                          height: 120.h,
-                          padding: EdgeInsets.symmetric(vertical: 8.h),
-                          child: Row(
-                            children: <Widget>[
-                              GestureDetector(
-                                onTap: () {
-                                  _controller.load(widget.videos[i].key);
-                                  _controller.play();
-                                },
-                                child: CachedNetworkImage(
-                                  width: 120.w,
-                                  imageUrl: YoutubePlayer.getThumbnail(
-                                    videoId: widget.videos[i].key,
-                                    quality: ThumbnailQuality.high,
-                                  ),
-                                  placeholder: (context, url) => const Center(
-                                    child: CircularProgressIndicator(
-                                      color: AppColor.royalBlue,
+        body: YoutubePlayerBuilder(
+          player: YoutubePlayer(
+            controller: _controller,
+            aspectRatio: 16 / 9,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: AppColor.royalBlue,
+            progressColors: const ProgressBarColors(
+              playedColor: AppColor.royalBlue,
+              handleColor: Colors.blueAccent,
+            ),
+          ),
+          builder: (context, player) {
+            return Column(
+              children: [
+                player,
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        for (int i = 0; i < widget.videos.length; i++)
+                          Container(
+                            height: 120.h,
+                            padding: EdgeInsets.symmetric(vertical: 8.h),
+                            child: Row(
+                              children: <Widget>[
+                                GestureDetector(
+                                  onTap: () {
+                                    _controller.load(widget.videos[i].key);
+                                    _controller.play();
+                                  },
+                                  child: CachedNetworkImage(
+                                    width: 120.w,
+                                    imageUrl: YoutubePlayer.getThumbnail(
+                                      videoId: widget.videos[i].key,
+                                      quality: ThumbnailQuality.high,
                                     ),
-                                  ),
-                                  errorWidget: (context, url, error) =>
-                                      const Icon(Icons.error),
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 8.w),
-                                  child: Text(
-                                    widget.videos[i].title,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 1,
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
+                                    placeholder: (context, url) => const Center(
+                                      child: CircularProgressIndicator(
+                                        color: AppColor.royalBlue,
+                                      ),
                                     ),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Expanded(
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 8.w),
+                                    child: Text(
+                                      widget.videos[i].title,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }
