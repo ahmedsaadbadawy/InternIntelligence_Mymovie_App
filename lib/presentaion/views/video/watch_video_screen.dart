@@ -83,7 +83,10 @@ class WatchVideoScreenState extends State<WatchVideoScreen> {
                                     quality: ThumbnailQuality.high,
                                   ),
                                   placeholder: (context, url) => const Center(
-                                      child: CircularProgressIndicator()),
+                                    child: CircularProgressIndicator(
+                                      color: AppColor.royalBlue,
+                                    ),
+                                  ),
                                   errorWidget: (context, url, error) =>
                                       const Icon(Icons.error),
                                 ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../../../Core/utils/api_constants.dart';
+import '../../../../Core/utils/themes/theme_color.dart';
 
 class CarouselSliderCard extends StatelessWidget {
   final int movieId;
@@ -24,6 +25,12 @@ class CarouselSliderCard extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           imageUrl: '${ApiConstants.baseImageUrl}$posterPath',
           fit: BoxFit.fill,
+          placeholder: (context, url) => const Center(
+            child: CircularProgressIndicator(
+              color: AppColor.royalBlue,
+            ),
+          ),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
     );

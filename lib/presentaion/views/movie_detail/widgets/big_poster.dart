@@ -35,6 +35,12 @@ class BigPoster extends StatelessWidget {
           child: CachedNetworkImage(
             imageUrl: '${ApiConstants.baseImageUrl}${movie.posterPath}',
             fit: BoxFit.fill,
+            placeholder: (context, url) => const Center(
+              child: CircularProgressIndicator(
+                color: AppColor.royalBlue,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
         Positioned(

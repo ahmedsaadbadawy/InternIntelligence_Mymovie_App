@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../Core/utils/api_constants.dart';
+import '../../../../Core/utils/themes/theme_color.dart';
 import '../../../../domain/entities/cast_entity.dart';
 
 class CastWidget extends StatelessWidget {
@@ -40,6 +41,12 @@ class CastWidget extends StatelessWidget {
                 imageUrl:
                     '${ApiConstants.baseImageUrl}${castEntity.posterPath}',
                 fit: BoxFit.fitWidth,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColor.royalBlue,
+                  ),
+                ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
           ),

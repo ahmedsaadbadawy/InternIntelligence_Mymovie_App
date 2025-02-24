@@ -4,13 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../Core/utils/api_constants.dart';
 import '../../../../Core/utils/app_router.dart';
+import '../../../../Core/utils/themes/theme_color.dart';
 import '/domain/entities/movie_entity.dart';
 
 class SearchMovieCard extends StatelessWidget {
   final MovieEntity movie;
 
   const SearchMovieCard({
-    super.key, 
+    super.key,
     required this.movie,
   });
 
@@ -37,6 +38,12 @@ class SearchMovieCard extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: '${ApiConstants.baseImageUrl}${movie.posterPath}',
                   width: 80.w,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColor.royalBlue,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -54,7 +61,10 @@ class SearchMovieCard extends StatelessWidget {
                     movie.overview ?? '',
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.grey),
                   ),
                 ],
               ),
