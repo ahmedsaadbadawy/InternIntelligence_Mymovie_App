@@ -2,30 +2,19 @@
 
 A new Flutter project 📘
 
-# Home screen preview 🎥
-
-![image](https://github.com/user-attachments/assets/a76d72e9-a773-4906-9abe-5ea5482844ef)
-
-.
-
-.
-
-.
-
-.
-
-.
- 
-![image](https://github.com/user-attachments/assets/6128dbb4-3ee9-41cc-9a4c-db417dd9ee22)
-
-.
-
-.
-
-.
-
-.
-
-.
 # Detail screen preview 🎥
-![image](https://github.com/user-attachments/assets/f6e5514a-c1f4-4de3-aedc-96395fb892c0)
+
+![image](https://github.com/user-attachments/assets/9fc5da5a-ee07-4f14-a6a9-e9de19c65c08)
+
+.
+
+.
+
+.
+
+.
+
+.
+# Trailer screen preview 🎥
+![image](https://github.com/user-attachments/assets/30d23d04-8814-49a4-88a6-1165b028abfe)
+
