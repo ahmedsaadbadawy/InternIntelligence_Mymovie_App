@@ -5,7 +5,7 @@ import 'package:movie_app/presentaion/views/movie_detail/widgets/cast_builder_wi
 import '../../../../domain/entities/movie_detail_entity.dart';
 import 'big_poster.dart';
 import 'movie_recommendations_section.dart';
-import 'videos_widget.dart';
+import '../../video/widgets/watch_videos_builder_widget.dart';
 
 class MovieDetailScreenBody extends StatelessWidget {
   const MovieDetailScreenBody({

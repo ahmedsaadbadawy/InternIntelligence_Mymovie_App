@@ -4,8 +4,8 @@ import 'package:movie_app/Core/utils/themes/theme_color.dart';
 
 import '../../../../di/get_it.dart';
 import '../../../widgets/custom_text_button.dart';
-import '../manager/videos/videos_cubit.dart';
-import '../manager/videos/videos_state.dart';
+import '../../movie_detail/manager/videos/videos_cubit.dart';
+import '../../movie_detail/manager/videos/videos_state.dart';
 import '../watch_video_screen.dart';
 
 class WatchVideosBuilderWidget extends StatelessWidget {

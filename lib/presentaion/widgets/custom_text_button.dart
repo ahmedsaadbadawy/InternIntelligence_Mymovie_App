@@ -25,7 +25,7 @@ class CustomTextButton extends StatelessWidget {
         ),
         //color: AppColor.royalBlue,
         borderRadius: BorderRadius.all(
-          Radius.circular(24.r),
+          Radius.circular(26.r),
         ),
       ),
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -37,7 +37,7 @@ class CustomTextButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 14.sp,
+            fontSize: 16.sp,
           ),
         ),
       ),
