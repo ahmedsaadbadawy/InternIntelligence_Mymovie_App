@@ -40,7 +40,7 @@ class WatchVideoScreenState extends State<WatchVideoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return sa(
+    return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
