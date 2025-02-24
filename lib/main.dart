@@ -9,7 +9,7 @@ import 'di/get_it.dart' as getit;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: "assets/.env");
   // print('API_KEY: ${dotenv.env['API_KEY']}');
   unawaited(getit.init());
   runApp(const MyApp());
