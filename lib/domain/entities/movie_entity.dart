@@ -20,8 +20,9 @@ class MovieEntity extends Equatable {
   });
 
   @override
-  List<Object> get props => [id, title];
+  List<Object> get props => [id, title]; // Properties to be compared
 
+// Prints MovieModel(157336, Interstellar) in the debug console.
   @override
-  bool get stringify => true;
+  bool get stringify => true; // Tell Equatable to use toString() to compare objects
 }

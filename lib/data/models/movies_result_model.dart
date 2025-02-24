@@ -3,13 +3,13 @@ import 'movie_model.dart';
 // ignoring pagination for now.
 class MoviesResultModel {
   //int? page;
-  List<MovieModel>? results;
+  List<MovieModel>? movies;
   //int? totalPages;
   //int? totalResults;
 
   MoviesResultModel({
     //this.page,
-    this.results,
+    this.movies,
     //this.totalPages,
     //this.totalResults,
   });
@@ -17,9 +17,9 @@ class MoviesResultModel {
   MoviesResultModel.fromJson(Map<String, dynamic> json) {
     //page = json['page'];
     if (json['results'] != null) {
-      results = <MovieModel>[];
+      movies = <MovieModel>[];
       json['results'].forEach((v) {
-        results!.add(MovieModel.fromJson(v));
+        movies!.add(MovieModel.fromJson(v));
       });
     }
     //totalPages = json['total_pages'];
@@ -27,10 +27,10 @@ class MoviesResultModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     //data['page'] = page;
-    if (results != null) {
-      data['results'] = results!.map((v) => v.toJson()).toList();
+    if (movies != null) {
+      data['results'] = movies!.map((v) => v.toJson()).toList();
     }
     //data['total_pages'] = totalPages;
     //data['total_results'] = totalResults;

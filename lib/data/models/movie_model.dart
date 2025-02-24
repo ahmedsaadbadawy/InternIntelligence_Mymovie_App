@@ -1,4 +1,4 @@
-import 'package:movie_app/Core/domain/entities/movie_entity.dart';
+import 'package:movie_app/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
   final String? originalTitle;
@@ -16,7 +16,7 @@ class MovieModel extends MovieEntity {
     String? backdropPath,
     String? title,
     this.originalTitle,
-    String? overview,
+    super.overview,
     this.mediaType,
     this.adult,
     this.originalLanguage,
@@ -33,7 +33,6 @@ class MovieModel extends MovieEntity {
           title: title ?? '',
           voteAverage: voteAverage ?? 0,
           releaseDate: releaseDate ?? '',
-          overview: overview,
         );
 
   // Factory constructor to create a MovieModel from JSON
