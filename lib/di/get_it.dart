@@ -1,17 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/presentaion/views/movie_detail/manager/MovieDetail/movie_detail_cubit.dart';
+import 'package:movie_app/presentaion/views/movie_detail/manager/cast/cast_cubit.dart';
+import 'package:movie_app/presentaion/views/movie_detail/manager/videos/videos_cubit.dart';
 import 'package:movie_app/presentaion/views/search/manager/SearchMovie/search_movie_cubit.dart';
 import '../data/datasources/api_client.dart';
 import '../data/datasources/movie_remote_data_source.dart';
 import '../data/repositories/movie_repository_impl.dart';
 import '../domain/repositories/movie_repository.dart';
+import '../domain/usecases/get_cast.dart';
 import '../domain/usecases/get_coming_soon.dart';
 import '../domain/usecases/get_movie_detail.dart';
 import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_recommendations.dart';
 import '../domain/usecases/get_trending.dart';
+import '../domain/usecases/get_videos.dart';
 import '../domain/usecases/search_movies.dart';
 import '../presentaion/manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../presentaion/manager/movie_carousel/movie_carousel_cubit.dart';
@@ -55,6 +59,11 @@ Future init() async {
 
   getItInstance.registerLazySingleton<GetRecommendations>(
       () => GetRecommendations(getItInstance()));
+  
+  getItInstance.registerLazySingleton<GetCast>(() => GetCast(getItInstance()));
+
+  getItInstance
+      .registerLazySingleton<GetVideos>(() => GetVideos(getItInstance()));
 
   getItInstance
       .registerLazySingleton<SearchMovies>(() => SearchMovies(getItInstance()));
@@ -94,6 +103,17 @@ Future init() async {
   getItInstance.registerFactory(
     () => SearchMoviesCubit(
       searchMovies: getItInstance(),
+    ),
+  );
+  getItInstance.registerFactory(
+    () => CastCubit(
+      getCast: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => VideosCubit(
+      getVideos: getItInstance(),
     ),
   );
 }
