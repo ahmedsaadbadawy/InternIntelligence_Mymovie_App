@@ -1,44 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../manager/movie_carousel/movie_carousel_cubit.dart';
-import '../../manager/movie_carousel/movie_carousel_state.dart';
 import '/di/get_it.dart';
-import 'widgets/custom_carousel_slider.dart';
+import 'widgets/custom_drawer_widget.dart';
+import 'widgets/home_app_bar.dart';
 import 'widgets/home_movie_sections/home_movie_sections.dart';
+import 'widgets/movie_crousel_slider_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getItInstance<MovieCarouselCubit>()..loadCarousel(),
-      child: Scaffold(
-        body: SafeArea(
-          child: CustomScrollView(
-            slivers: [
-              // Carousel Slider
-              SliverToBoxAdapter(
-                child: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
-                  builder: (context, state) {
-                    if (state is MovieCarouselLoading) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state is MovieCarouselLoaded) {
-                      return CustomCarouselSlider(movies: state.movies);
-                    } else if (state is MovieCarouselError) {
-                      return Center(child: Text(state.errorMessage));
-                    }
-                    return const SizedBox.shrink();
-                  },
+    return Scaffold(
+      drawer: const CustomDrawerWidget(),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                // Carousel Slider
+                SliverToBoxAdapter(
+                  child: BlocProvider(
+                    create: (context) =>
+                        getItInstance<MovieCarouselCubit>()..loadCarousel(),
+                    child: const MovieCrouselSliderBuilder(),
+                  ),
                 ),
-              ),
 
-              // Movie Sections
-              const SliverToBoxAdapter(
-                child: HomeMovieSections(),
-              ),
-            ],
-          ),
+                // Movie Sections
+                const SliverToBoxAdapter(
+                  child: HomeMovieSections(),
+                ),
+              ],
+            ),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: HomeAppBar(),
+            ),
+          ],
         ),
       ),
     );
