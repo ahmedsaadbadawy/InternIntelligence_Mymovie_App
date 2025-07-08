@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/generated/l10n.dart';
+//import 'package:movie_app/Core/utils/constants/languages.dart';
 import 'Core/utils/app_router.dart';
 import 'Core/utils/themes/theme_color.dart';
 import 'di/get_it.dart' as getit;
@@ -28,6 +31,14 @@ class MyApp extends StatelessWidget {
             colorScheme: const ColorScheme.dark().copyWith(
           primary: AppColor.royalBlue,
         )),
+        locale: const Locale('en'),
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
         routerConfig: AppRouter.router,
       ),
     );

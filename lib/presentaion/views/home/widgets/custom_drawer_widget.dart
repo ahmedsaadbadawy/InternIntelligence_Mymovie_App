@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:movie_app/generated/l10n.dart';
 
-class CustomDrawerWidget extends StatelessWidget {
+class CustomDrawerWidget extends StatefulWidget {
   const CustomDrawerWidget({
     super.key,
   });
 
+  @override
+  State<CustomDrawerWidget> createState() => _CustomDrawerWidgetState();
+}
+
+class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,11 +25,36 @@ class CustomDrawerWidget extends StatelessWidget {
             child: Text('Dialogs', style: TextStyle(fontSize: 20)),
           ),
           ListTile(
-            title: const Text('FeedBack', style: TextStyle(fontSize: 16)),
+            title: Text(S.of(context).feedback,
+                style: const TextStyle(fontSize: 16)),
             onTap: () {},
           ),
+          ExpansionTile(
+            title: Text(S.of(context).language),
+            children: [
+              ListTile(
+                title: const Text('English'),
+                onTap: () {
+                  if (Intl.getCurrentLocale() != 'en') {
+                    S.load(const Locale('en'));
+                    setState(() {});
+                  }
+                },
+              ),
+              ListTile(
+                title: const Text('العربيه'),
+                onTap: () {
+                  if (Intl.getCurrentLocale() != 'ar') {
+                    S.load(const Locale('ar'));
+                    setState(() {});
+                  }
+                },
+              ),
+            ],
+          ),
           ListTile(
-            title: const Text('About Us', style: TextStyle(fontSize: 16)),
+            title: Text(S.of(context).aboutUs,
+                style: const TextStyle(fontSize: 16)),
             onTap: () {
               // Handle item 2 tap
             },

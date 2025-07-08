@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../manager/movie_popular/movie_popular_cubit.dart';
 import '../../../../manager/movie_popular/movie_popular_state.dart';
 import '../../../../widgets/horizontal_movie_list.dart';
@@ -16,7 +17,7 @@ class PopularMoviesSection extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (state is MoviePopularLoaded) {
           return HorizontalMovieList(
-            title: 'Popular',
+            title: S.of(context).popular,
             movies: state.movies,
           );
         } else if (state is MoviePopularError) {

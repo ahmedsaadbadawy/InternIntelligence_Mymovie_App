@@ -1,0 +1,16 @@
+{
+    "feedback": "تعليق",
+    "language": "اللغة",
+    "aboutUs": "من نحن",
+    "okay": "حسناً",
+    "aboutDescription": "وصف عنا",
+    "pageHomeWelcomeRole": "{role, select, admin {مرحبا بك، ادمن!} manager {مرحبا بك، مدير!} other {مرحبا بك، زائر!}}",
+    "popular": "الأكثر شيوعا",
+    "nowPlaying": "يتم عرضه الآن",
+    "comingSoon": "قريبا",
+    "home": "الرئيسية",
+    "search": "بحث",
+    "downloads": "التحميلات",
+    "profile": "الملف الشخصي",
+    "searchUse": "يمكنك استخدام ايقونة البحث لتعثر على الأفلام"
+}

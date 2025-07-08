@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../manager/playing_now/movie_playing_now_cubit.dart';
 import '../../../../manager/playing_now/movie_playing_now_state.dart';
 import '../../../../widgets/horizontal_movie_list.dart';
@@ -16,7 +17,7 @@ class PlayingNowSection extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (state is MoviePlayingNowLoaded) {
           return HorizontalMovieList(
-            title: 'Now Playing',
+            title: S.of(context).nowPlaying,
             movies: state.movies,
           );
         } else if (state is MoviePlayingNowError) {

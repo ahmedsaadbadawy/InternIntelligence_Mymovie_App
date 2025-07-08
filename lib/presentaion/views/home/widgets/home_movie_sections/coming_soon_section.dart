@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../manager/coming_soon/movie_coming_soon_cubit.dart';
 import '../../../../manager/coming_soon/movie_coming_soon_state.dart';
 import '../../../../widgets/horizontal_movie_list.dart';
@@ -16,7 +17,7 @@ class ComingSoonSection extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (state is MovieComingSoonLoaded) {
           return HorizontalMovieList(
-            title: 'Coming Soon',
+            title: S.of(context).comingSoon,
             movies: state.movies,
           );
         } else if (state is MovieComingSoonError) {

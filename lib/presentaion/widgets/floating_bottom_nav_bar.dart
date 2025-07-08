@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../generated/l10n.dart';
+
 class FloatingBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
@@ -34,22 +36,22 @@ class FloatingBottomNavBar extends StatelessWidget {
           elevation: 0,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: const Icon(Icons.home),
+              label: S.of(context).home,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
+              icon: const Icon(Icons.search),
+              label: S.of(context).search,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.download),
-              label: 'Downloads',
+              icon: const Icon(Icons.download),
+              label: S.of(context).downloads,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
+              icon: const Icon(Icons.person),
+              label: S.of(context).profile,
             ),
           ],
         ),

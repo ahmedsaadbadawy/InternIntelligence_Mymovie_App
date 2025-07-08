@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di/get_it.dart';
+import '../../../generated/l10n.dart';
 import 'manager/SearchMovie/search_movie_cubit.dart';
 import 'widgets/custom_search_movie_delegate.dart';
 
@@ -30,8 +31,8 @@ class SearchScreen extends StatelessWidget {
                 ),
               ],
             ),
-            body: const Center(
-              child: Text('Use the search icon to find movies.'),
+            body: Center(
+              child: Text(S.of(context).searchUse),
             ),
           );
         },

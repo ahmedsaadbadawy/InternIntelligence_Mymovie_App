@@ -1,6 +1,7 @@
 // presentation/widgets/horizontal_movie_list.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'movie_card.dart';
 import '/domain/entities/movie_entity.dart';
 
@@ -17,7 +18,9 @@ class HorizontalMovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: Intl.getCurrentLocale() == 'ar'
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: 16.h,
@@ -38,6 +41,7 @@ class HorizontalMovieList extends StatelessWidget {
           height: 200.w,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
+            reverse: Intl.getCurrentLocale() == 'ar' ? true : false,
             itemCount: movies.length,
             itemBuilder: (context, index) {
               final movie = movies[index];

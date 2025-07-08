@@ -1,0 +1,17 @@
+{
+    "favoriteMovies": "Favorite Movies",
+    "language": "Language",
+    "feedback": "Feedback",
+    "aboutUs": "About Us",
+    "okay": "Okay",
+    "aboutDescription": "About Description",
+    "pageHomeWelcomeRole": "{role, select, admin {Hi admin!} manager {Hi manager!} other {Hi visitor!}}",
+    "popular": "Popular",
+    "nowPlaying": "Now Playing",
+    "comingSoon": "Coming Soon",
+    "home": "Home",
+    "search": "Search",
+    "downloads": "Downloads",
+    "profile": "Profile",
+    "searchUse": "Use the search icon to find movies"
+}
