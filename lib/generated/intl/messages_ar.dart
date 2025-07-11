@@ -25,7 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "aboutDescription": MessageLookupByLibrary.simpleMessage("وصف عنا"),
+    "aboutDescription": MessageLookupByLibrary.simpleMessage(
+      "يستخدم هذا المنتج واجهة برمجة تطبيقات TMDb، ولكنه غير معتمد أو معتمد من TMDb. تم تطوير هذا التطبيق لأغراض تعليمية.",
+    ),
     "aboutUs": MessageLookupByLibrary.simpleMessage("من نحن"),
     "comingSoon": MessageLookupByLibrary.simpleMessage("قريبا"),
     "downloads": MessageLookupByLibrary.simpleMessage("التحميلات"),

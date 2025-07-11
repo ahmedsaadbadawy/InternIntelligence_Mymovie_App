@@ -3,7 +3,7 @@
     "language": "اللغة",
     "aboutUs": "من نحن",
     "okay": "حسناً",
-    "aboutDescription": "وصف عنا",
+    "aboutDescription": "يستخدم هذا المنتج واجهة برمجة تطبيقات TMDb، ولكنه غير معتمد أو معتمد من TMDb. تم تطوير هذا التطبيق لأغراض تعليمية.",
     "pageHomeWelcomeRole": "{role, select, admin {مرحبا بك، ادمن!} manager {مرحبا بك، مدير!} other {مرحبا بك، زائر!}}",
     "popular": "الأكثر شيوعا",
     "nowPlaying": "يتم عرضه الآن",

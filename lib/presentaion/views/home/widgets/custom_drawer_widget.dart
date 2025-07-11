@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:wiredash/wiredash.dart';
 
+import '../../../../Core/utils/widgets/app_dialog.dart';
+
 class CustomDrawerWidget extends StatefulWidget {
   const CustomDrawerWidget({
     super.key,
@@ -31,6 +33,7 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
             onTap: () {
               // Inherits the Material theme's secondary color as the main color
               // Wiredash.of(context).show(inheritMaterialTheme: true);
+              Navigator.of(context).pop();
               Wiredash.of(context).show();
             },
           ),
@@ -61,11 +64,27 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
             title: Text(S.of(context).aboutUs,
                 style: const TextStyle(fontSize: 16)),
             onTap: () {
-              // Handle item 2 tap
+              Navigator.of(context).pop();
+              _showDialog(context);
             },
           ),
         ],
       ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      builder: (context) => AppDialog(
+        title: S.of(context).aboutDescription,
+        description: S.of(context).aboutDescription,
+        buttonText: S.of(context).okay,
+        image: Image.asset(
+          'assets/images/pngs/tmdb_logo.png',
+          height: 32.h,
+        ),
+      ),
+      context: context,
     );
   }
 }

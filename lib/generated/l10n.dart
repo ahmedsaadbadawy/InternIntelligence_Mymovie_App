@@ -84,10 +84,10 @@ class S {
     return Intl.message('Okay', name: 'okay', desc: '', args: []);
   }
 
-  /// `About Description`
+  /// `This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.`
   String get aboutDescription {
     return Intl.message(
-      'About Description',
+      'This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.',
       name: 'aboutDescription',
       desc: '',
       args: [],

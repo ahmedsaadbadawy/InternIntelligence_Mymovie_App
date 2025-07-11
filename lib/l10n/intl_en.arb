@@ -4,7 +4,7 @@
     "feedback": "Feedback",
     "aboutUs": "About Us",
     "okay": "Okay",
-    "aboutDescription": "About Description",
+    "aboutDescription": "This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.",
     "pageHomeWelcomeRole": "{role, select, admin {Hi admin!} manager {Hi manager!} other {Hi visitor!}}",
     "popular": "Popular",
     "nowPlaying": "Now Playing",
