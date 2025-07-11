@@ -27,11 +27,10 @@ class AppDialog extends StatelessWidget {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.only(
-          top: 4.h,
-          left: 16.w,
-          right: 16.w,
-        ),
+        width: 300.w,
+        height: 350.h,
+        padding:
+            EdgeInsets.only(top: 16.h, left: 16.w, right: 16.w, bottom: 16.h),
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -40,29 +39,33 @@ class AppDialog extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 20.sp, color: Colors.white),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 6.h),
-              child: Text(
-                description,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.sp, color: Colors.white),
-              ),  
-            ),
-            if (image != null) image!,
-            Button(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              text: buttonText,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 14.sp, color: Colors.white),
+              ),
+              SizedBox(height: 2.h),
+              const Divider(thickness: 0.5),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.h),
+                child: Text(
+                  description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10.sp, color: Colors.white),
+                ),
+              ),
+              if (image != null) image!,
+              Button(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                text: buttonText,
+              ),
+            ],
+          ),
         ),
       ),
     );

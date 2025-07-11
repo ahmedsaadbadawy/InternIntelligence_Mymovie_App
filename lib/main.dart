@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(414, 896),
+      minTextAdapt: true,
+      splitScreenMode: true,
       builder: (context, child) => WiredashApp(
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,

@@ -29,7 +29,6 @@ class Button extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       margin: EdgeInsets.symmetric(vertical: 10.h),
-      height: 16.h,
       child: TextButton(
         onPressed: () => onPressed(),
         child: Text(

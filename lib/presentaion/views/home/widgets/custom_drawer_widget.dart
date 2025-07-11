@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:wiredash/wiredash.dart';
 
-import '../../../../Core/utils/widgets/app_dialog.dart';
+import '../../../../Core/utils/Helpers/show_about_dialog.dart';
 
 class CustomDrawerWidget extends StatefulWidget {
   const CustomDrawerWidget({
@@ -65,26 +65,11 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
                 style: const TextStyle(fontSize: 16)),
             onTap: () {
               Navigator.of(context).pop();
-              _showDialog(context);
+              showAboutDialogHelper(context);
             },
           ),
         ],
       ),
-    );
-  }
-
-  void _showDialog(BuildContext context) {
-    showDialog(
-      builder: (context) => AppDialog(
-        title: S.of(context).aboutDescription,
-        description: S.of(context).aboutDescription,
-        buttonText: S.of(context).okay,
-        image: Image.asset(
-          'assets/images/pngs/tmdb_logo.png',
-          height: 32.h,
-        ),
-      ),
-      context: context,
     );
   }
 }
