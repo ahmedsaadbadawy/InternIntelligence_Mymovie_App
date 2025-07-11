@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:movie_app/generated/l10n.dart';
+import 'package:wiredash/wiredash.dart';
 
 class CustomDrawerWidget extends StatefulWidget {
   const CustomDrawerWidget({
@@ -27,7 +28,11 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
           ListTile(
             title: Text(S.of(context).feedback,
                 style: const TextStyle(fontSize: 16)),
-            onTap: () {},
+            onTap: () {
+              // Inherits the Material theme's secondary color as the main color
+              // Wiredash.of(context).show(inheritMaterialTheme: true);
+              Wiredash.of(context).show();
+            },
           ),
           ExpansionTile(
             title: Text(S.of(context).language),
